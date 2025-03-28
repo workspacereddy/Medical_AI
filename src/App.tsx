@@ -4,6 +4,7 @@ import { FileText, Home, MessageCircle, Activity } from 'lucide-react';
 import DocumentAnalyzer from './pages/DocumentAnalyzer';
 import HealthChat from './pages/HealthChat';
 import HealthMetrics from './pages/HealthMetrics';
+import Emergency from './pages/Emergency';
 
 function HomePage() {
   return (
@@ -33,11 +34,11 @@ function HomePage() {
             <span className="text-lg font-medium text-gray-800">Health Metrics</span>
           </Link>
           <Link
-            to="/health-metrics"
+            to="/emergency"
             className="flex items-center justify-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
           >
             <Activity className="w-6 h-6 mr-3 text-blue-500" />
-            <span className="text-lg font-medium text-gray-800">Health Metrics</span>
+            <span className="text-lg font-medium text-gray-800">Health Emergency</span>
           </Link>
         </div>
       </div>
@@ -90,6 +91,7 @@ function App() {
         <Route path="/document-analyzer" element={<DocumentAnalyzer />} />
         <Route path="/health-chat" element={<HealthChat />} />
         <Route path="/health-metrics" element={<HealthMetrics />} />
+        <Route path="/emergency" element={<Emergency />} />
       </Routes>
     </Router>
   );
