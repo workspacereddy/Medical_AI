@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Ambulance, Cross } from 'lucide-react';
+import { Phone, Ambulance, Cross, MapPin } from 'lucide-react';
 
 export default function Emergency() {
   const emergencyContacts = [
@@ -22,10 +22,10 @@ export default function Emergency() {
       description: 'General hospital inquiries and appointments',
     },
     {
-      name: 'Medical Emergency Line',
-      number: '(555) 987-6543',
-      icon: Cross,
-      description: '24/7 medical consultation service',
+      name: 'Medical Emergency',
+      number: 'Nearest Hospital Map',
+      icon: MapPin,
+      description: '24/7 medical service',
     },
   ];
 
