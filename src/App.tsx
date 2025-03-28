@@ -5,6 +5,7 @@ import DocumentAnalyzer from './pages/DocumentAnalyzer';
 import HealthChat from './pages/HealthChat';
 import HealthMetrics from './pages/HealthMetrics';
 import Emergency from './pages/Emergency';
+import Footer from './components/Footer';
 
 function HomePage() {
   return (
@@ -100,6 +101,7 @@ function App() {
         <Route path="/health-metrics" element={<HealthMetrics />} />
         <Route path="/emergency" element={<Emergency />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
