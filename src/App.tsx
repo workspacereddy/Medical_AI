@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { FileText, Home, MessageCircle, Activity, Cross, MapPin } from 'lucide-react';
+import { FileText, Home, MessageCircle, Activity, MapPin } from 'lucide-react';
 import DocumentAnalyzer from './pages/DocumentAnalyzer';
 import HealthChat from './pages/HealthChat';
 import HealthMetrics from './pages/HealthMetrics';
@@ -58,52 +58,59 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-      <nav className="bg-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex space-x-8">
-              <Link
-                to="/"
-                className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
-              >
-                <Home className="w-6 h-6 mr-2" />
-                Home
-              </Link>
-              <Link
-                to="/document-analyzer"
-                className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
-              >
-                <FileText className="w-6 h-6 mr-2" />
-                Document Analyzer
-              </Link>
-              <Link
-                to="/health-chat"
-                className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
-              >
-                <MessageCircle className="w-6 h-6 mr-2" />
-                Health Chat
-              </Link>
-              <Link
-                to="/health-metrics"
-                className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
-              >
-                <Activity className="w-6 h-6 mr-2" />
-                Health Metrics
-              </Link>
+        <nav className="bg-white shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-20 items-center">
+              <div className="flex space-x-8">
+                <Link
+                  to="/"
+                  className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
+                >
+                  <Home className="w-6 h-6 mr-2" />
+                  Home
+                </Link>
+                <Link
+                  to="/document-analyzer"
+                  className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
+                >
+                  <FileText className="w-6 h-6 mr-2" />
+                  Document Analyzer
+                </Link>
+                <Link
+                  to="/health-chat"
+                  className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
+                >
+                  <MessageCircle className="w-6 h-6 mr-2" />
+                  Health Chat
+                </Link>
+                <Link
+                  to="/health-metrics"
+                  className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
+                >
+                  <Activity className="w-6 h-6 mr-2" />
+                  Health Metrics
+                </Link>
+                <Link
+                  to="/emergency"
+                  className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
+                >
+                  <MapPin className="w-6 h-6 mr-2" />
+                  Health Emergency
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-      <main className="flex-grow">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/document-analyzer" element={<DocumentAnalyzer />} />
-        <Route path="/health-chat" element={<HealthChat />} />
-        <Route path="/health-metrics" element={<HealthMetrics />} />
-        <Route path="/emergency" element={<Emergency />} />
-      </Routes>
-      </main>
-      <Footer />
+        </nav>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/document-analyzer" element={<DocumentAnalyzer />} />
+            <Route path="/health-chat" element={<HealthChat />} />
+            <Route path="/health-metrics" element={<HealthMetrics />} />
+            <Route path="/emergency" element={<Emergency />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </Router>
   );
