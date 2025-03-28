@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { FileText, Home, MessageCircle, Activity, Cross } from 'lucide-react';
+import { FileText, Home, MessageCircle, Activity, Cross, MapPin } from 'lucide-react';
 import DocumentAnalyzer from './pages/DocumentAnalyzer';
 import HealthChat from './pages/HealthChat';
 import HealthMetrics from './pages/HealthMetrics';
@@ -43,7 +43,7 @@ function HomePage() {
             to="/emergency"
             className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all min-h-[200px]"
           >
-            <Cross className="w-12 h-12 mb-4 text-blue-500" />
+            <MapPin className="w-12 h-12 mb-4 text-blue-500" />
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">Health Emergency</h2>
             <p className="text-gray-600 text-base">Immediate emergency contacts and resources</p>
           </Link>
