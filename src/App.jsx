@@ -46,7 +46,7 @@ function HomePage() {
           >
             <MapPin className="w-12 h-12 mb-4 text-blue-500" />
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">Emergency Services</h2>
-            <p className="text-gray-600 text-base">Find nearby emergency facilities and contacts</p>
+            <p className="text-gray-600 text-base">Find nearby Emergency facilities and contacts</p>
           </Link>
         </div>
       </div>
