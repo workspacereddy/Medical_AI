@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import { FileText, Upload, AlertCircle, Loader2 } from 'lucide-react';
 
-const API_URL = import.meta.env.API_URL || 'http://localhost:8000';
+// const API_URL = https://testinggenai-pdf.onrender.com;
 
 function DocumentAnalyzer() {
   const [file, setFile] = useState<File | null>(null);
@@ -39,7 +39,7 @@ function DocumentAnalyzer() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post(`${API_URL}/api/process_document`, formData, {
+      const response = await axios.post(`https://testinggenai-pdf.onrender.com/api/process_document`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
