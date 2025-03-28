@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Activity, Heart, Thermometer, Droplet, LineChart, Loader2 } from 'lucide-react';
 import axios from 'axios';
 
-const API_URL = import.meta.env.API_URL || 'http://localhost:8000';
+// const API_URL = import.meta.env.API_URL || 'http://localhost:8000';
 
 function HealthMetrics() {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ function HealthMetrics() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_URL}/api/predict`, formData);
+      const response = await axios.post(`https://testing-final-07ll.onrender.com/api/predict`, formData);
       setPrediction(response.data.prediction);
     } catch (error) {
       setPrediction('Error analyzing health metrics. Please try again.');
