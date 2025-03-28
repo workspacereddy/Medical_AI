@@ -10,12 +10,20 @@ function HealthMetrics() {
     heartRate: '',
     temperature: ''
   });
+  const [submittedData, setSubmittedData] = useState({
+    bloodPressure: '',
+    bloodSugar: '',
+    cholesterol: '',
+    heartRate: '',
+    temperature: ''
+  });
   const [prediction, setPrediction] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setSubmittedData({ ...formData });
 
     try {
       const response = await axios.post(`https://testing-final-07ll.onrender.com/api/predict`, formData);
@@ -131,45 +139,28 @@ function HealthMetrics() {
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {metrics.map(({ name, label, placeholder, icon: Icon, unit }) => {
-                const progress = getProgress(name, formData[name as keyof typeof formData]);
-                
-                return (
-                  <div key={name} className="space-y-2">
-                    <label className="flex items-center text-gray-700 font-medium">
-                      <Icon className="w-5 h-5 mr-2 text-blue-500" />
-                      {label}
-                    </label>
-                    <div className="relative">
-                      <input
-                        type="text"
-                        name={name}
-                        value={formData[name as keyof typeof formData]}
-                        onChange={handleChange}
-                        placeholder={placeholder}
-                        className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        required
-                      />
-                      <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
-                        {unit}
-                      </span>
-                    </div>
-                    <div className="relative pt-2">
-                      <div className="w-full bg-gray-200 rounded-full h-2.5">
-                        <div
-                          className={`h-2.5 rounded-full transition-all duration-300 ${progress.color}`}
-                          style={{ width: progress.width }}
-                        />
-                      </div>
-                      <div className="flex justify-between text-sm text-gray-500 mt-1">
-                        <span>Low</span>
-                        <span>Normal</span>
-                        <span>High</span>
-                      </div>
-                    </div>
+              {metrics.map(({ name, label, placeholder, icon: Icon, unit }) => (
+                <div key={name} className="space-y-2">
+                  <label className="flex items-center text-gray-700 font-medium">
+                    <Icon className="w-5 h-5 mr-2 text-blue-500" />
+                    {label}
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name={name}
+                      value={formData[name as keyof typeof formData]}
+                      onChange={handleChange}
+                      placeholder={placeholder}
+                      className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      required
+                    />
+                    <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500">
+                      {unit}
+                    </span>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
 
             <button
@@ -198,6 +189,33 @@ function HealthMetrics() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               Analysis Results
             </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {metrics.map(({ name, label, icon: Icon }) => {
+                const progress = getProgress(name, submittedData[name as keyof typeof submittedData]);
+                
+                return (
+                  <div key={name} className="space-y-2">
+                    <div className="flex items-center text-gray-700 font-medium mb-2">
+                      <Icon className="w-5 h-5 mr-2 text-blue-500" />
+                      {label}
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div
+                        className={`h-2.5 rounded-full transition-all duration-300 ${progress.color}`}
+                        style={{ width: progress.width }}
+                      />
+                    </div>
+                    <div className="flex justify-between text-sm text-gray-500 mt-1">
+                      <span>Low</span>
+                      <span>Normal</span>
+                      <span>High</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
             <div className="prose max-w-none">
               <p className="text-gray-700 whitespace-pre-line">{prediction}</p>
             </div>
