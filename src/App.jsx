@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { FileText, Home, MessageCircle, Activity, MapPin } from 'lucide-react';
+import { FileText, Home, MessageCircle, Activity, Cross, MapPin } from 'lucide-react';
 import DocumentAnalyzer from './pages/DocumentAnalyzer';
 import HealthChat from './pages/HealthChat';
 import HealthMetrics from './pages/HealthMetrics';
@@ -45,8 +45,8 @@ function HomePage() {
             className="flex flex-col items-center p-8 bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all min-h-[200px]"
           >
             <MapPin className="w-12 h-12 mb-4 text-blue-500" />
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Health Emergency</h2>
-            <p className="text-gray-600 text-base">Immediate emergency contacts and resources</p>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Emergency Services</h2>
+            <p className="text-gray-600 text-base">Find nearby emergency facilities and contacts</p>
           </Link>
         </div>
       </div>
@@ -95,12 +95,13 @@ function App() {
                   className="flex items-center text-gray-800 hover:text-blue-500 font-medium text-lg"
                 >
                   <MapPin className="w-6 h-6 mr-2" />
-                  Health Emergency
+                  Emergency Map
                 </Link>
               </div>
             </div>
           </div>
         </nav>
+
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -110,6 +111,7 @@ function App() {
             <Route path="/emergency" element={<Emergency />} />
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>
