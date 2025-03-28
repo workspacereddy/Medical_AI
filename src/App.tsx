@@ -57,6 +57,7 @@ function HomePage() {
 function App() {
   return (
     <Router>
+      <div className="min-h-screen flex flex-col">
       <nav className="bg-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
@@ -93,7 +94,7 @@ function App() {
           </div>
         </div>
       </nav>
-
+      <main className="flex-grow">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/document-analyzer" element={<DocumentAnalyzer />} />
@@ -101,7 +102,9 @@ function App() {
         <Route path="/health-metrics" element={<HealthMetrics />} />
         <Route path="/emergency" element={<Emergency />} />
       </Routes>
+      </main>
       <Footer />
+      </div>
     </Router>
   );
 }
